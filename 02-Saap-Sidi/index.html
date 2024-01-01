@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            background-color: #6ED6A1;
+        }
+        #yellow{
+            background-color: #FEB231;
+        }
+        #red{
+            background-color: #CF444F;
+        }
+        #white{
+            color: black;
+            background-color: #FEFFFE;
+        }
+        #purple{
+            background-color: #965FB2;
+        }
+        #green{
+            background-color: #0D9A8A;
+        }
+        #blue{
+            background-color: #1975BE;
+        }
+        .container{
+            margin: auto;
+            width: fit-content;
+            display: flex;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 2%;
+            right: 2%;
+            left: 2%;
+            bottom: 1%;
+            background-color: #2FB671;
+            /* background-color: #FEFFFE; */
+            padding: 10px;
+
+            box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+-webkit-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+-moz-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+        }
+        .parent {
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            border: 5px solid white;
+        }
+        .box{
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            outline: none;
+            border: 0.000px solid black;
+            background-color: #c6f5a0;
+            padding: 17px;
+            color: #fff;
+            font-weight: bold;
+        }
+        .dice{
+            margin: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .dice span a{
+            text-decoration: none;
+            margin: 0px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            background-color: #f8e623;
+        }
+        .dice span{
+            margin-top: 23px;
+            cursor: pointer;
+            color: aliceblue;
+            background-color: #f8e623;
+            font-size: 18px;
+            font-weight: 900;
+        }
+        .dice button:hover{
+            background-color: #569c1c;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <div class="box" id="yellow">100</div>
+            <div class="box" id="red">99</div>
+            <div class="box" id="white">98</div>
+            <div class="box" id="purple">97</div>
+            <div class="box" id="green">96</div>
+            <div class="box" id="yellow">95</div>
+            <div class="box" id="red">94</div>
+            <div class="box" id="white">93</div>
+            <div class="box" id="blue">92</div>
+            <div class="box" id="purple">91</div>
+            
+            <div class="box" id="white">81</div>
+            <div class="box" id="purple">82</div>
+            <div class="box" id="green">83</div>
+            <div class="box" id="yellow">84</div>
+            <div class="box" id="red">85</div>
+            <div class="box" id="white">86</div>
+            <div class="box" id="blue">87</div>
+            <div class="box" id="purple">88</div>
+            <div class="box" id="green">89</div>
+            <div class="box" id="yellow">90</div>
+
+            <div class="box" id="green">80</div>
+            <div class="box" id="yellow">79</div>
+            <div class="box" id="red">78</div>
+            <div class="box" id="white">77</div>
+            <div class="box" id="blue">76</div>
+            <div class="box" id="purple">75</div>
+            <div class="box" id="green">74</div>
+            <div class="box" id="yellow">73</div>
+            <div class="box" id="red">72</div>
+            <div class="box" id="white">71</div>
+            
+            <div class="box" id="red">61</div>
+            <div class="box" id="white">62</div>
+            <div class="box" id="blue">63</div>
+            <div class="box" id="purple">64</div>
+            <div class="box" id="green">65</div>
+            <div class="box" id="yellow">66</div>
+            <div class="box" id="red">67</div>
+            <div class="box" id="white">68</div>
+            <div class="box" id="blue">69</div>
+            <div class="box" id="purple">70</div>
+
+            <div class="box" id="blue">60</div>
+            <div class="box" id="purple">59</div>
+            <div class="box" id="green">58</div>
+            <div class="box" id="yellow">57</div>
+            <div class="box" id="red">56</div>
+            <div class="box" id="white">55</div>
+            <div class="box" id="blue">54</div>
+            <div class="box" id="purple">53</div>
+            <div class="box" id="green">52</div>
+            <div class="box" id="yellow">51</div>        
+            
+            <div class="box" id="green">41</div>
+            <div class="box" id="yellow">42</div>
+            <div class="box" id="red">43</div>
+            <div class="box" id="white">44</div>
+            <div class="box" id="blue">45</div>
+            <div class="box" id="purple">46</div>
+            <div class="box" id="green">47</div>
+            <div class="box" id="yellow">48</div>
+            <div class="box" id="red">49</div>
+            <div class="box" id="white">50</div>
+
+            <div class="box" id="red">40</div>
+            <div class="box" id="white">39</div>
+            <div class="box" id="blue">38</div>
+            <div class="box" id="purple">37</div>
+            <div class="box" id="green">36</div>
+            <div class="box" id="yellow">35</div>
+            <div class="box" id="red">34</div>
+            <div class="box" id="white">33</div>
+            <div class="box" id="blue">32</div>
+            <div class="box" id="purple">31</div>
+
+            <div class="box" id="blue">21</div>
+            <div class="box" id="purple">22</div>
+            <div class="box" id="green">23</div>
+            <div class="box" id="yellow">24</div>
+            <div class="box" id="red">25</div>
+            <div class="box" id="white">26</div>
+            <div class="box" id="blue">27</div>
+            <div class="box" id="purple">28</div>
+            <div class="box" id="green">29</div>
+            <div class="box" id="yellow">30</div>
+
+            <div class="box" id="green">20</div>
+            <div class="box" id="yellow">19</div>
+            <div class="box" id="red">18</div>
+            <div class="box" id="white">17</div>
+            <div class="box" id="blue">16</div>
+            <div class="box" id="purple">15</div>
+            <div class="box" id="green">14</div>
+            <div class="box" id="yellow">13</div>
+            <div class="box" id="red">12</div>
+            <div class="box" id="white">11</div>
+            
+            <div class="box" id="red">1</div>
+            <div class="box" id="white">2</div>
+            <div class="box" id="blue">3</div>
+            <div class="box" id="purple">4</div>
+            <div class="box" id="green">5</div>
+            <div class="box" id="yellow">6</div>
+            <div class="box" id="red">7</div>
+            <div class="box" id="white">8</div>
+            <div class="box" id="blue">9</div>
+            <div class="box" id="purple">10</div>
+            
+        </div>
+        <div class="dice">
+            <span>
+                <a href="board.html" target="_blank">Roll Dice</a>
+            </span>
+        </div>
+    </div>
+</body>
+</html>
