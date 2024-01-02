@@ -8,6 +8,7 @@
         *{
             margin: 0;
             padding: 0;
+            font-family: 'Genearl Sans Medium';
         }
         html,body{
             background-color: #6ED6A1;
@@ -37,17 +38,28 @@
             display: flex;
             flex-wrap: wrap;
             position: absolute;
-            top: 2%;
+            top: 8%;
             right: 2%;
             left: 2%;
-            bottom: 1%;
             background-color: #2FB671;
             /* background-color: #FEFFFE; */
             padding: 10px;
-
             box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
--webkit-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
--moz-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+            -webkit-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+            -moz-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+        }
+        .heading{
+            margin: auto;
+            width: fit-content;
+            /* background-color: #CF444F; */
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        h1{
+            
+            color: white;
+            z-index: 9999;
         }
         .parent {
             margin: auto;
@@ -59,7 +71,6 @@
             border: 5px solid white;
         }
         .box{
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -86,6 +97,7 @@
             outline: none;
             border-radius: 5px;
             padding: 15px 20px;
+            color: #3b1d1d;
             background-color: #f8e623;
         }
         .dice span{
@@ -103,7 +115,11 @@
     </style>
 </head>
 <body>
+    <div class="heading">
+        <h1>Snake Ladder</h1>
+    </div>
     <div class="container">
+        
         <div class="parent">
             <div class="box" id="yellow">100</div>
             <div class="box" id="red">99</div>
