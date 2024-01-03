@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Genearl Sans Medium';
+}
+html,body{
+    background-color: #6ED6A1;
+}
+#yellow{
+    background-color: #FEB231;
+}
+#red{
+    background-color: #CF444F;
+}
+#white{
+    color: black;
+    background-color: #FEFFFE;
+}
+#purple{
+    background-color: #965FB2;
+}
+#green{
+    background-color: #0D9A8A;
+}
+#blue{
+    background-color: #1975BE;
+}
+.container{
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 8%;
+    right: 2%;
+    left: 2%;
+    background-color: #2FB671;
+    /* background-color: #FEFFFE; */
+    padding: 10px;
+    box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+    -webkit-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+    -moz-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
+}
+.heading{
+    margin: auto;
+    width: fit-content;
+    /* background-color: #CF444F; */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+h1{
+    
+    color: white;
+    z-index: 9999;
+}
+.parent {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border: 5px solid white;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    outline: none;
+    border: 0.000px solid black;
+    background-color: #c6f5a0;
+    padding: 17px;
+    color: #fff;
+    font-weight: bold;
+}
+.dice{
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.dice span a{
+    text-decoration: none;
+    margin: 0px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    color: #3b1d1d;
+    background-color: #f8e623;
+}
+.dice span{
+    margin-top: 23px;
+    cursor: pointer;
+    color: aliceblue;
+    background-color: #f8e623;
+    font-size: 18px;
+    font-weight: 900;
+}
+.dice button:hover{
+    background-color: #569c1c;
+}
