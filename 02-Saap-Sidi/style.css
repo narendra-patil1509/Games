@@ -79,6 +79,7 @@ h1{
 .dice{
     margin: 12px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -103,4 +104,23 @@ h1{
 }
 .dice button:hover{
     background-color: #569c1c;
+}
+.circle{
+    width: 30px;
+    height: 30px;
+    background: turquoise;
+    border-radius: 50%;
+}
+.player{
+    position: absolute;
+}
+.sum{
+    width: fit-content;
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+}
+.sum #sum{
+    font-size: 18px;
+    font-weight: bold;
 }
