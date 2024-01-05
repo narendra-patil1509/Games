@@ -6,23 +6,23 @@
 html,body{
     background-color: #6ED6A1;
 }
-#yellow{
+.box.yellow{
     background-color: #FEB231;
 }
-#red{
+.box.red{
     background-color: #CF444F;
 }
-#white{
+.box.white{
     color: black;
     background-color: #FEFFFE;
 }
-#purple{
+.box.purple{
     background-color: #965FB2;
 }
-#green{
+.box.green{
     background-color: #0D9A8A;
 }
-#blue{
+.box.blue{
     background-color: #1975BE;
 }
 .container{
@@ -110,9 +110,12 @@ h1{
     height: 30px;
     background: turquoise;
     border-radius: 50%;
+    position: absolute;
 }
 .player{
-    position: absolute;
+    position: relative;
+    z-index: 9999;
+    transform: translateY(-14px) translateX(21px);
 }
 .sum{
     width: fit-content;
