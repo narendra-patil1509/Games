@@ -5,6 +5,7 @@ let currentNumber = 0;
 let dice = document.getElementById("sum");
 let player = document.getElementById("player");
 let circle = document.getElementById("circle");
+let btn = document.getElementById("dice");
 
 function rollDice(){
     generatedNumber = Math.floor((Math.random()*6)+1);
@@ -12,23 +13,33 @@ function rollDice(){
     sum+=generatedNumber;
     currentNumber = sum;
 
+    if(sum==100){
+        console.log(sum,"sum");
+        btn.disabled = true;
+    }
+
     for (let i = previousNumber; i <= currentNumber; i++) {
         let boxValue = document.getElementById("box"+ i);
         const rect = boxValue.getBoundingClientRect();
         const position = {
-            left: rect.left,
+            left: rect.right,
             top: rect.top,
         };
 
         let top = position.top;
         let left = position.left;
 
+        
+
         playerMove(top,left);
+        // break;   
     }
     // console.log("Sum = ",sum);
 }
 
 function playerMove(top,left){
-    console.log("PLayer Move");
-    player.style.transform = `translateY(${top-189}px) translateX(${left-21}px)`;
+    // console.log("Curent Num",sum+" Top = ",top-624+" | Left = ",left-71);
+    console.log("-----------------");
+    // player.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`; mobile
+    circle.style.transform = `translateY(${top-696}px) translateX(${left-427}px)`;/*Desktop*/
 }

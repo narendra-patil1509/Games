@@ -26,10 +26,11 @@ html,body{
     background-color: #1975BE;
 }
 .container{
+    box-sizing: border-box;
     margin: auto;
     width: fit-content;
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex;
+    flex-wrap: wrap; */
     position: absolute;
     top: 8%;
     right: 2%;
@@ -41,6 +42,10 @@ html,body{
     -webkit-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
     -moz-box-shadow: 0px 0px 125px -14px rgba(56,31,241,0.75);
 }
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
 .heading{
     margin: auto;
     width: fit-content;
@@ -50,11 +55,11 @@ html,body{
     align-items: center; 
 }
 h1{
-    
     color: white;
     z-index: 9999;
 }
 .parent {
+    position: relative;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -108,14 +113,14 @@ h1{
 .circle{
     width: 30px;
     height: 30px;
-    background: turquoise;
+    background: black;/*turquoise*/
     border-radius: 50%;
     position: absolute;
+    transform: translateY(-46px) translateX(17px);
 }
 .player{
-    position: relative;
-    z-index: 9999;
-    transform: translateY(-14px) translateX(21px);
+    /* z-index: 9999; */
+    /* transform: translateY(-14px) translateX(21px); */
 }
 .sum{
     width: fit-content;
