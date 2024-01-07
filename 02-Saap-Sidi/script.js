@@ -43,6 +43,6 @@ function rollDice(){
 function playerMove(top,left){
     // console.log("Curent Num",sum+" Top = ",top-624+" | Left = ",left-71);
     console.log("-----------------");
-    // player.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`; mobile
-    circle.style.transform = `translateY(${top-696}px) translateX(${left-427}px)`;/*Desktop*/
+    player.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`; mobile
+    // circle.style.transform = `translateY(${top-696}px) translateX(${left-427}px)`;/*Desktop*/
 }
