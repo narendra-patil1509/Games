@@ -30,8 +30,11 @@ function rollDice(){
         let left = position.left;
 
         
-
-        playerMove(top,left);
+        setTimeout( ()=>{
+            playerMove(top,left);
+        },i*1000);
+        // playerMove(top,left);
+        
         // break;   
     }
     // console.log("Sum = ",sum);
