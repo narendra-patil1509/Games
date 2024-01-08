@@ -29,20 +29,38 @@ function rollDice(){
         let top = position.top;
         let left = position.left;
 
-        
-        setTimeout( ()=>{
-            playerMove(top,left);
-        },i*1000);
-        // playerMove(top,left);
-        
-        // break;   
+        if(currentNumber == 5){
+            //Sidi functionality 5 to 25 only(Jump from 5 to 25)
+            setTimeout( ()=>{
+                sum = 25;
+                playerMove(top,left);
+                setTimeout( ()=>{
+                    circle.style.transform = `translateY(-174.2px) translateX(273.75px)`;
+                },5000);
+            },i*1000);
+        }
+        else if(currentNumber == 34){
+            //Saap functionality 34 to 4 only(Jump from 34 to 4)
+            setTimeout( ()=>{
+                sum = 4;
+                playerMove(top,left);
+                setTimeout( ()=>{
+                    circle.style.transform = `translateY(-46.2px) translateX(209.75px)`;
+                },34000);
+            },i*1000);
+        }
+        else{
+            setTimeout( ()=>{
+                playerMove(top,left);
+            },i*1000);
+        }
     }
-    // console.log("Sum = ",sum);
+    console.log("Sum = ",sum);
 }
 
 function playerMove(top,left){
     // console.log("Curent Num",sum+" Top = ",top-624+" | Left = ",left-71);
-    console.log("-----------------");
-    circle.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`; mobile
-    // circle.style.transform = `translateY(${top-696}px) translateX(${left-427}px)`;/*Desktop*/
+    console.log("Current Num ",currentNumber);
+    // circle.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`; mobile
+    circle.style.transform = `translateY(${top-696}px) translateX(${left-427}px)`;/*Desktop*/
 }
