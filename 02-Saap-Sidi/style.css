@@ -89,7 +89,8 @@ h1{
     align-items: center;
     text-align: center;
 }
-.dice span a{
+.dice .btn a{
+    margin-top: 12px;
     text-decoration: none;
     margin: 0px;
     border: none;
@@ -99,7 +100,7 @@ h1{
     color: #3b1d1d;
     background-color: #f8e623;
 }
-.dice span{
+.dice .btn{
     margin-top: 23px;
     cursor: pointer;
     color: aliceblue;
@@ -107,19 +108,20 @@ h1{
     font-size: 18px;
     font-weight: 900;
 }
-.dice button:hover{
+.dice .btn:hover{
     background-color: #569c1c;
 }
 .circle{
     width: 30px;
     height: 30px;
-    background: black;/*turquoise*/
+    background: rgba(0,0,0,0.5);/*turquoise*/
     border-radius: 50%;
     position: absolute;
     transform: translateY(-46px) translateX(17px);
+    transition: all .7s;
 }
 .player{
-    /* z-index: 9999; */
+    z-index: 9999;
     /* transform: translateY(-14px) translateX(21px); */
 }
 .sum{
