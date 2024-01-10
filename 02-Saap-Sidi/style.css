@@ -93,7 +93,7 @@ h1{
     border: none;
     outline: none;
     border-radius: 5px;
-    padding: 15px 20px;
+    padding: 18px 24px;
     color: #3b1d1d;
     background-color: #f8e623;
 }
@@ -102,7 +102,7 @@ h1{
     cursor: pointer;
     color: aliceblue;
     background-color: #f8e623;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 900;
 }
 .dice .btn:hover{
