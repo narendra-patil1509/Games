@@ -63,5 +63,6 @@ function playerMove(top,left){
     // console.log("Curent Num",sum+" Top = ",top-624+" | Left = ",left-71);
     console.log("Current Num ",currentNumber);
     // circle.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`; mobile
-    circle.style.transform = `translateY(${top-697}px) translateX(${left-420}px)`;/*Desktop*/
+    circle.style.transform = `translateY(${top-697}px) translateX(${left-475}px)`;/*Desktop*/
+    // circle.style.transform = `translateY(${top-697}px) translateX(${left-420}px)`;
 }
