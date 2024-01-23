@@ -43,6 +43,8 @@ html,body{
 .row{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .heading{
     margin: auto;
@@ -73,10 +75,23 @@ h1{
     height: 30px;
     outline: none;
     border: 0.000px solid black;
-    background-color: #c6f5a0;
+    background-color: #2a99af;
     padding: 17px;
     color: #fff;
     font-weight: bold;
+}
+.players-box{
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(252, 252, 252);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 .dice{
     margin: 12px;
@@ -120,6 +135,26 @@ h1{
 .player{
     z-index: 9999;
     /* transform: translateY(-14px) translateX(21px); */
+}
+.P1{
+    text-align: center;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    background: rgba(0,0,0,0.5);/*turquoise*/
+    border-radius: 50%;
+}
+#p1{
+    background-color: yellow;
+}
+#p2{
+    background-color: rgb(44, 116, 8);
+}
+#p3{
+    background-color: rgb(0, 221, 255);
+}
+#p4{
+    background-color: rgb(155, 16, 197);
 }
 .sum{
     width: fit-content;
