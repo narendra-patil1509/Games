@@ -57,8 +57,10 @@ h1{
     color: white;
     z-index: 9999;
 }
+.white-border{
+    border: 3px solid darkblue;
+}
 .parent {
-    position: relative;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -84,6 +86,7 @@ h1{
     margin: 5px;
     width: 100px;
     height: 100px;
+    border-radius: 5px;
     background-color: rgb(252, 252, 252);
     display: grid;
     justify-content: center;
@@ -92,6 +95,9 @@ h1{
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+}
+.sum img{
+    width: 90px;
 }
 .dice{
     margin: 12px;
@@ -128,13 +134,12 @@ h1{
     height: 30px;
     background: rgba(0,0,0,0.5);/*turquoise*/
     border-radius: 50%;
-    position: absolute;
     transform: translateY(-46px) translateX(17px);
-    transition: all .7s;
+    transition: all .9s;
 }
 .player{
+    position: absolute;
     z-index: 9999;
-    /* transform: translateY(-14px) translateX(21px); */
 }
 .P1{
     text-align: center;
