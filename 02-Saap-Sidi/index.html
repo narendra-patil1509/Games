@@ -1,159 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saap Sidi</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="heading">
-        <h1>Snake Ladder</h1>
-    </div>
-
-    
-    <div class="container">
-       <div class="row">
-
-        <div class="player-section">
-            <div class="join-player">
-                <h4 style="color: aliceblue; font-weight: bolder; text-align: center;">Joined Player</h4>
-            </div>
-            <div class="players-box">
-                <div class="P1" id="p1">1</div>
-                <div class="P1" id="p2">2</div>
-                <div class="P1" id="p3">3</div>
-                <div class="P1" id="p4">4</div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Saap Sidi</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="heading">
+            <h1>Snake Ladder</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="player-section">
+                    <div class="join-player">
+                        <h4 style="color: aliceblue; font-weight: bolder; text-align: center;">Joined Player</h4>
+                    </div>
+                    <div class="players-box">
+                        <div class="P1" id="p1"></div>
+                        <div class="P1" id="p2"></div>
+                        <div class="P1" id="p3"></div>
+                        <div class="P1" id="p4"></div>
+                    </div>
+                </div>
+                <div class="white-border">
+                    <div class="parent">
+                        <div class="box yellow" id="box100">100</div>
+                        <div class="box red" id="box99">99</div>
+                        <div class="box white" id="box98">98</div>
+                        <div class="box purple" id="box97">97</div>
+                        <div class="box green" id="box96">96</div>
+                        <div class="box yellow" id="box95">95</div>
+                        <div class="box red" id="box94">94</div>
+                        <div class="box white" id="box93">93</div>
+                        <div class="box blue" id="box92">92</div>
+                        <div class="box purple" id="box91">91</div>
+                        <div class="box white" id="box81">81</div>
+                        <div class="box purple" id="box82">82</div>
+                        <div class="box green" id="box83">83</div>
+                        <div class="box yellow" id="box84">84</div>
+                        <div class="box red" id="box85">85</div>
+                        <div class="box white" id="box86">86</div>
+                        <div class="box blue" id="box87">87</div>
+                        <div class="box purple" id="box88">88</div>
+                        <div class="box green" id="box89">89</div>
+                        <div class="box yellow" id="box90">90</div>
+                        <div class="box green" id="box80">80</div>
+                        <div class="box yellow" id="box79">79</div>
+                        <div class="box red" id="box78">78</div>
+                        <div class="box white" id="box77">77</div>
+                        <div class="box blue" id="box76">76</div>
+                        <div class="box purple" id="box75">75</div>
+                        <div class="box green" id="box74">74</div>
+                        <div class="box yellow" id="box73">73</div>
+                        <div class="box red" id="box72">72</div>
+                        <div class="box white" id="box71">71</div>
+                        <div class="box red" id="box61">61</div>
+                        <div class="box white" id="box62">62</div>
+                        <div class="box blue" id="box63">63</div>
+                        <div class="box purple" id="box64">64</div>
+                        <div class="box green" id="box65">65</div>
+                        <div class="box yellow" id="box66">66</div>
+                        <div class="box red" id="box67">67</div>
+                        <div class="box white" id="box68">68</div>
+                        <div class="box blue" id="box69">69</div>
+                        <div class="box purple" id="box70">70</div>
+                        <div class="box blue" id="box60">60</div>
+                        <div class="box purple" id="box59">59</div>
+                        <div class="box green" id="box58">58</div>
+                        <div class="box yellow" id="box57">57</div>
+                        <div class="box red" id="box56">56</div>
+                        <div class="box white" id="box55">55</div>
+                        <div class="box blue" id="box54">54</div>
+                        <div class="box purple" id="box53">53</div>
+                        <div class="box green" id="box52">52</div>
+                        <div class="box yellow" id="box51">51</div>
+                        <div class="box green" id="box41">41</div>
+                        <div class="box yellow" id="box42">42</div>
+                        <div class="box red" id="box43">43</div>
+                        <div class="box white" id="box44">44</div>
+                        <div class="box blue" id="box45">45</div>
+                        <div class="box purple" id="box46">46</div>
+                        <div class="box green" id="box47">47</div>
+                        <div class="box yellow" id="box48">48</div>
+                        <div class="box red" id="box49">49</div>
+                        <div class="box white" id="box50">50</div>
+                        <div class="box red" id="box40">40</div>
+                        <div class="box white" id="box39">39</div>
+                        <div class="box blue" id="box38">38</div>
+                        <div class="box purple" id="box37">37</div>
+                        <div class="box green" id="box36">36</div>
+                        <div class="box yellow" id="box35">35</div>
+                        <div class="box red" id="box34">34</div>
+                        <div class="box white" id="box33">33</div>
+                        <div class="box blue" id="box32">32</div>
+                        <div class="box purple" id="box31">31</div>
+                        <div class="box blue" id="box21">21</div>
+                        <div class="box purple" id="box22">22</div>
+                        <div class="box green" id="box23">23</div>
+                        <div class="box yellow" id="box24">24</div>
+                        <div class="box red" id="box25">25</div>
+                        <div class="box white" id="box26">26</div>
+                        <div class="box blue" id="box27">27</div>
+                        <div class="box purple" id="box28">28</div>
+                        <div class="box green" id="box29">29</div>
+                        <div class="box yellow" id="box30">30</div>
+                        <div class="box green" id="box20">20</div>
+                        <div class="box yellow" id="box19">19</div>
+                        <div class="box red" id="box18">18</div>
+                        <div class="box white" id="box17">17</div>
+                        <div class="box blue" id="box16">16</div>
+                        <div class="box purple" id="box15">15</div>
+                        <div class="box green" id="box14">14</div>
+                        <div class="box yellow" id="box13">13</div>
+                        <div class="box red" id="box12">12</div>
+                        <div class="box white" id="box11">11</div>
+                        <div class="box red" id="box1">1</div>
+                        <div class="box white" id="box2">2</div>
+                        <div class="box blue" id="box3">3</div>
+                        <div class="box purple" id="box4">4</div>
+                        <div class="box green" id="box5">5</div>
+                        <div class="box yellow" id="box6">6</div>
+                        <div class="box red" id="box7">7</div>
+                        <div class="box white" id="box8">8</div>
+                        <div class="box blue" id="box9">9</div>
+                        <div class="box purple" id="box10">10</div>
+                       
+                    </div>
+                    <span class="player" id="player">
+                        <div class="circle" id="circle"></div>
+                    </span>
+                </div>
+                <div class="dice" id="dice">
+                    <div class="sum">
+                        <p id="sum">
+                            <img id="dImage" src="images/Untitled design/1.png" alt="">
+                        </p>
+                    </div>
+                    <div class="btn" onclick="rollDice()">
+                        <a target="_blank">Roll Dice</a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="parent">   
-            <div class="box yellow" id="box100">100</div>
-            <div class="box red" id="box99">99</div>
-            <div class="box white" id="box98">98</div>
-            <div class="box purple" id="box97">97</div>
-            <div class="box green" id="box96">96</div>
-            <div class="box yellow" id="box95">95</div>
-            <div class="box red" id="box94">94</div>
-            <div class="box white" id="box93">93</div>
-            <div class="box blue" id="box92">92</div>
-            <div class="box purple" id="box91">91</div>
-            
-            <div class="box white" id="box81">81</div>
-            <div class="box purple" id="box82">82</div>
-            <div class="box green" id="box83">83</div>
-            <div class="box yellow" id="box84">84</div>
-            <div class="box red" id="box85">85</div>
-            <div class="box white" id="box86">86</div>
-            <div class="box blue" id="box87">87</div>
-            <div class="box purple" id="box88">88</div>
-            <div class="box green" id="box89">89</div>
-            <div class="box yellow" id="box90">90</div>
-
-            <div class="box green" id="box80">80</div>
-            <div class="box yellow" id="box79">79</div>
-            <div class="box red" id="box78">78</div>
-            <div class="box white" id="box77">77</div>
-            <div class="box blue" id="box76">76</div>
-            <div class="box purple" id="box75">75</div>
-            <div class="box green" id="box74">74</div>
-            <div class="box yellow" id="box73">73</div>
-            <div class="box red" id="box72">72</div>
-            <div class="box white" id="box71">71</div>
-            
-            <div class="box red" id="box61">61</div>
-            <div class="box white" id="box62">62</div>
-            <div class="box blue" id="box63">63</div>
-            <div class="box purple" id="box64">64</div>
-            <div class="box green" id="box65">65</div>
-            <div class="box yellow" id="box66">66</div>
-            <div class="box red" id="box67">67</div>
-            <div class="box white" id="box68">68</div>
-            <div class="box blue" id="box69">69</div>
-            <div class="box purple" id="box70">70</div>
-
-            <div class="box blue" id="box60">60</div>
-            <div class="box purple" id="box59">59</div>
-            <div class="box green" id="box58">58</div>
-            <div class="box yellow" id="box57">57</div>
-            <div class="box red" id="box56">56</div>
-            <div class="box white" id="box55">55</div>
-            <div class="box blue" id="box54">54</div>
-            <div class="box purple" id="box53">53</div>
-            <div class="box green" id="box52">52</div>
-            <div class="box yellow" id="box51">51</div>        
-            
-            <div class="box green" id="box41">41</div>
-            <div class="box yellow" id="box42">42</div>
-            <div class="box red" id="box43">43</div>
-            <div class="box white" id="box44">44</div>
-            <div class="box blue" id="box45">45</div>
-            <div class="box purple" id="box46">46</div>
-            <div class="box green" id="box47">47</div>
-            <div class="box yellow" id="box48">48</div>
-            <div class="box red" id="box49">49</div>
-            <div class="box white" id="box50">50</div>
-
-            <div class="box red" id="box40">40</div>
-            <div class="box white" id="box39">39</div>
-            <div class="box blue" id="box38">38</div>
-            <div class="box purple" id="box37">37</div>
-            <div class="box green" id="box36">36</div>
-            <div class="box yellow" id="box35">35</div>
-            <div class="box red" id="box34">34</div>
-            <div class="box white" id="box33">33</div>
-            <div class="box blue" id="box32">32</div>
-            <div class="box purple" id="box31">31</div>
-
-            <div class="box blue" id="box21">21</div>
-            <div class="box purple" id="box22">22</div>
-            <div class="box green" id="box23">23</div>
-            <div class="box yellow" id="box24">24</div>
-            <div class="box red" id="box25">25</div>
-            <div class="box white" id="box26">26</div>
-            <div class="box blue" id="box27">27</div>
-            <div class="box purple" id="box28">28</div>
-            <div class="box green" id="box29">29</div>
-            <div class="box yellow" id="box30">30</div>
-
-            <div class="box green" id="box20">20</div>
-            <div class="box yellow" id="box19">19</div>
-            <div class="box red" id="box18">18</div>
-            <div class="box white" id="box17">17</div>
-            <div class="box blue" id="box16">16</div>
-            <div class="box purple" id="box15">15</div>
-            <div class="box green" id="box14">14</div>
-            <div class="box yellow" id="box13">13</div>
-            <div class="box red" id="box12">12</div>
-            <div class="box white" id="box11">11</div>
-            
-            <div class="box red" id="box1">1</div>
-            <div class="box white" id="box2">2</div>
-            <div class="box blue" id="box3">3</div>
-            <div class="box purple" id="box4">4</div>
-            <div class="box green" id="box5">5</div>
-            <div class="box yellow" id="box6">6</div>
-            <div class="box red" id="box7">7</div>
-            <div class="box white" id="box8">8</div>
-            <div class="box blue" id="box9">9</div>
-            <div class="box purple" id="box10">10</div>
-
-            <span class="player" id="player">
-                <div class="circle" id="circle"></div>
-            </span>
-            
-        </div>
-        
-        <div class="dice" id="dice">
-            <div class="sum">
-                <p id="sum"></p>
-            </div>
-            <div class="btn" onclick="rollDice()">
-                <a target="_blank">Roll Dice</a>
-            </div>
-        </div>
-       </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
