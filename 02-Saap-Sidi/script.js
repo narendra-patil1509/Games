@@ -5,6 +5,7 @@ let currentNumber = 0;
 let dice = document.getElementById("sum");
 let player = document.getElementById("player");
 let circle = document.getElementById("circle");
+let diceImage = document.createElement("img");
 let btn = document.getElementById("dice");
 
 function rollDice(){
@@ -31,38 +32,40 @@ function rollDice(){
 
         if(currentNumber == 5){
             //Sidi functionality 5 to 25 only(Jump from 5 to 25)
+            sum = 25;
+            playerMove(top,left);
             setTimeout( ()=>{
-                sum = 25;
-                playerMove(top,left);
-                setTimeout( ()=>{
-                    circle.style.transform = `translateY(-174.2px) translateX(273.75px)`;
-                },5000);
-            },i*1000);
+                sidi();
+            },1500)
         }
         else if(currentNumber == 34){
             //Saap functionality 34 to 4 only(Jump from 34 to 4)
+            sum = 4;
+            playerMove(top,left);
             setTimeout( ()=>{
-                sum = 4;
-                playerMove(top,left);
-                setTimeout( ()=>{
-                    circle.style.transform = `translateY(-46.2px) translateX(209.75px)`;
-                },34000);
-            },i*1000);
+                circle.style.transform = `translateY(-46.2px) translateX(209.75px)`;
+            },1500)
+            
         }
         else{
-            setTimeout( ()=>{
-                
-            },1000);
             playerMove(top,left);
         }
     }
+    diceImage.id = dImage;
+    diceImage.src = `images/Untitled design/${generatedNumber}.png`;
+    dice.appendChild(diceImage);
+    
     console.log("Sum = ",sum);
+}
+
+async function sidi(){
+   return circle.style.transform = `translateY(-174.2px) translateX(273.75px)`;
 }
 
 function playerMove(top,left){
     // console.log("Curent Num",sum+" Top = ",top-624+" | Left = ",left-71);
     console.log("Current Num ",currentNumber);
-    // circle.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`; mobile
+    circle.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`;/*  mobile*/
     circle.style.transform = `translateY(${top-697}px) translateX(${left-475}px)`;/*Desktop*/
     // circle.style.transform = `translateY(${top-697}px) translateX(${left-420}px)`;
 }
