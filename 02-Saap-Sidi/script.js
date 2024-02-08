@@ -5,12 +5,16 @@ let currentNumber = 0;
 let dice = document.getElementById("sum");
 let player = document.getElementById("player");
 let circle = document.getElementById("circle");
-let diceImage = document.createElement("img");
+let diceImage = document.getElementById("dImage");
+let diceSound = new Audio("audio/diceSound.mp3");
 let btn = document.getElementById("dice");
 
 function rollDice(){
     generatedNumber = Math.floor((Math.random()*6)+1);
-    dice.innerText = generatedNumber;
+    diceImage.src = `images/Untitled design/${generatedNumber}.png`;
+    diceImage.style.transform = `rotate(${2*generatedNumber*180}deg)`;
+    diceSound.play();
+    // dice.textContent = generatedNumber;
     sum+=generatedNumber;
     currentNumber = sum;
 
@@ -51,10 +55,6 @@ function rollDice(){
             playerMove(top,left);
         }
     }
-    diceImage.id = dImage;
-    diceImage.src = `images/Untitled design/${generatedNumber}.png`;
-    dice.appendChild(diceImage);
-    
     console.log("Sum = ",sum);
 }
 
@@ -65,7 +65,7 @@ async function sidi(){
 function playerMove(top,left){
     // console.log("Curent Num",sum+" Top = ",top-624+" | Left = ",left-71);
     console.log("Current Num ",currentNumber);
-    circle.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`;/*  mobile*/
+    // circle.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`;/*  mobile*/
     circle.style.transform = `translateY(${top-697}px) translateX(${left-475}px)`;/*Desktop*/
-    // circle.style.transform = `translateY(${top-697}px) translateX(${left-420}px)`;
+
 }
