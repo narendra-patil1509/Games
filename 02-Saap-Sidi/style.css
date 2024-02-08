@@ -98,6 +98,19 @@ h1{
 }
 .sum img{
     width: 90px;
+    mix-blend-mode: luminosity;
+    -webkit-transform: rotate(180deg);
+    transition: all .7s;
+}
+.ladder img{
+    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+    width: 150px;
+}
+.ladder{
+    position: absolute;
+    bottom: 2vw;
+    left: 23vw;
 }
 .dice{
     margin: 12px;
@@ -132,6 +145,8 @@ h1{
 .circle{
     width: 30px;
     height: 30px;
+    color: white;
+    font-weight: bolder;
     background: rgba(0,0,0,0.5);/*turquoise*/
     border-radius: 50%;
     transform: translateY(-46px) translateX(17px);
