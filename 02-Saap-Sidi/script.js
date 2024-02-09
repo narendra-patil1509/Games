@@ -25,19 +25,13 @@ function rollDice(){
 
     for (let i = previousNumber; i <= currentNumber; i++) {
         let boxValue = document.getElementById("box"+ i);
-        const rect = boxValue.getBoundingClientRect();
-        const position = {
-            left: rect.right,
-            top: rect.top,
-        };
-
-        let top = position.top;
-        let left = position.left;
+        let t = boxValue.offsetTop;
+        let l = boxValue.offsetLeft;
 
         if(currentNumber == 5){
             //Sidi functionality 5 to 25 only(Jump from 5 to 25)
-            sum = 25;
-            playerMove(top,left);
+            sum = 26;
+            playerMove(t,l);
             setTimeout( ()=>{
                 sidi();
             },1500)
@@ -45,26 +39,29 @@ function rollDice(){
         else if(currentNumber == 34){
             //Saap functionality 34 to 4 only(Jump from 34 to 4)
             sum = 4;
-            playerMove(top,left);
+            playerMove(t,l);
             setTimeout( ()=>{
-                circle.style.transform = `translateY(-46.2px) translateX(209.75px)`;
+                saap();
             },1500)
             
         }
         else{
-            playerMove(top,left);
+            playerMove(t,l);
         }
     }
     console.log("Sum = ",sum);
 }
-
-async function sidi(){
-   return circle.style.transform = `translateY(-174.2px) translateX(273.75px)`;
+function saap(){
+    player.style.top = 657+"px";
+    player.style.left = 327+"px";
 }
 
-function playerMove(top,left){
-    // console.log("Curent Num",sum+" Top = ",top-624+" | Left = ",left-71);
-    console.log("Current Num ",currentNumber);
-    // circle.style.transform = `translateY(${top-688}px) translateX(${left-71}px)`;/*  mobile*/
-    circle.style.transform = `translateY(${top-697}px) translateX(${left-475}px)`;/*Desktop 1536 x 824  inner size 1536 x 738*/
+function sidi(){
+    player.style.top = 529+"px";
+    player.style.left = 448+"px";
+}
+
+function playerMove(t,l){
+    player.style.top = t+64+"px";
+    player.style.left = l+"px";
 }
