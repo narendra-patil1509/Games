@@ -109,8 +109,9 @@ h1{
 }
 .ladder{
     position: absolute;
-    bottom: 2vw;
-    left: 23vw;
+    transform: rotate(9deg);
+    bottom: 5%;
+    left: 40%;
 }
 .dice{
     margin: 12px;
@@ -153,6 +154,9 @@ h1{
     transition: all .9s;
 }
 .player{
+    top: 657px;
+    left: 135px;
+    transition: all .9s;
     position: absolute;
     z-index: 9999;
 }
