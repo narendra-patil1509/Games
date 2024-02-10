@@ -31,17 +31,23 @@ function rollDice(){
         if(currentNumber == 5){
             //Sidi functionality 5 to 25 only(Jump from 5 to 25)
             sum = 26;
+            boxValue = document.getElementById("box26");
+            let tt = boxValue.offsetTop;
+            let ll = boxValue.offsetLeft;
             playerMove(t,l);
             setTimeout( ()=>{
-                sidi();
+                saapSidi(tt,ll);
             },1500)
         }
-        else if(currentNumber == 34){
+        else if(currentNumber == 31){
             //Saap functionality 34 to 4 only(Jump from 34 to 4)
-            sum = 4;
+            sum = 8;
+            boxValue = document.getElementById("box8");
+            let tt = boxValue.offsetTop;
+            let ll = boxValue.offsetLeft;
             playerMove(t,l);
             setTimeout( ()=>{
-                saap();
+                saapSidi(tt,ll);
             },1500)
             
         }
@@ -51,17 +57,12 @@ function rollDice(){
     }
     console.log("Sum = ",sum);
 }
-function saap(){
-    player.style.top = 657+"px";
-    player.style.left = 327+"px";
-}
-
-function sidi(){
-    player.style.top = 529+"px";
-    player.style.left = 448+"px";
+function saapSidi(tt,ll){
+    player.style.top = tt+68+"px"; 
+    player.style.left = ll-4+"px";
 }
 
 function playerMove(t,l){
-    player.style.top = t+64+"px";
-    player.style.left = l+"px";
+    player.style.top = t+68+"px";
+    player.style.left = l-4+"px";
 }
