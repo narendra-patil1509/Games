@@ -4,6 +4,7 @@ let previousNumber = 1;
 let currentNumber = 0;
 let dice = document.getElementById("sum");
 let player = document.getElementById("player");
+let button = document.getElementById("btn");
 let circle = document.getElementById("circle");
 let diceImage = document.getElementById("dImage");
 let diceSound = new Audio("audio/diceSound.mp3");
@@ -18,9 +19,11 @@ function rollDice(){
     sum+=generatedNumber;
     currentNumber = sum;
 
-    if(sum==100){
+    
+
+    if(sum>=100){
         console.log(sum,"sum");
-        btn.disabled = true;
+        button.removeAttribute("onclick");
     }
 
     for (let i = previousNumber; i <= currentNumber; i++) {
@@ -55,7 +58,7 @@ function rollDice(){
             playerMove(t,l);
         }
     }
-    console.log("Sum = ",sum);
+    // console.log("Sum = ",sum);
 }
 function saapSidi(tt,ll){
     player.style.top = tt+68+"px"; 
