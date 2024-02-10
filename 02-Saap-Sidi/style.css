@@ -46,6 +46,11 @@ html,body{
     justify-content: center;
     align-items: center;
 }
+.head-center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .heading{
     margin: auto;
     width: fit-content;
@@ -106,12 +111,13 @@ h1{
     -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
     width: 150px;
+    z-index: 15;
 }
 .ladder{
     position: absolute;
     transform: rotate(9deg);
     bottom: 4%;
-    left: 41%;
+    left: 32%;
 }
 .dice{
     margin: 12px;
@@ -121,7 +127,7 @@ h1{
     align-items: center;
     text-align: center;
 }
-.dice .btn a{
+.dice .btn {
     margin-top: 12px;
     text-decoration: none;
     margin: 0px;
@@ -135,13 +141,13 @@ h1{
 .dice .btn{
     margin-top: 23px;
     cursor: pointer;
-    color: aliceblue;
+  
     background-color: #f8e623;
     font-size: 20px;
     font-weight: 900;
 }
 .dice .btn:hover{
-    background-color: #569c1c;
+    background-color: #79ff0c;
 }
 .circle{
     width: 30px;
@@ -150,12 +156,12 @@ h1{
     font-weight: bolder;
     background: rgba(0,0,0,0.5);/*turquoise*/
     border-radius: 50%;
-    transform: translateY(-46px) translateX(17px);
+    transform: translateY(-51px) translateX(21px);
     transition: all .9s;
 }
 .player{
-    top: 657px;
-    left: 135px;
+    /* top: 608px; 
+    left: 113px; */
     transition: all .9s;
     position: absolute;
     z-index: 9999;
@@ -184,7 +190,8 @@ h1{
     width: fit-content;
     background-color: white;
     border-radius: 5px;
-    padding: 15px;
+    padding: 10px;
+    margin-top: 10px;
 }
 .sum #sum{
     font-size: 18px;
@@ -198,6 +205,34 @@ h1{
     }
 }
 @media only screen and (max-width: 974px) {
+    .players-box{
+    }
+    .ladder {
+        bottom: 4%;
+        left: 32%;
+    }
+}
+@media only screen and (max-width: 859px) {
+    .ladder {
+        bottom: 22%;
+        left: 42%;
+    }
+    .dice {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .dice .btn{
+        margin-left: 12px;
+    }
+    .dice .sum{
+        margin-top: 18px;
+    }
+    .sum{
+        padding: 4px;
+    }
+}
+@media only screen and (max-width: 816px) {
     .ladder {
         bottom: 22%;
         left: 41%;
