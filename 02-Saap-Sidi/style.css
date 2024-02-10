@@ -110,8 +110,8 @@ h1{
 .ladder{
     position: absolute;
     transform: rotate(9deg);
-    bottom: 5%;
-    left: 40%;
+    bottom: 4%;
+    left: 41%;
 }
 .dice{
     margin: 12px;
@@ -189,4 +189,23 @@ h1{
 .sum #sum{
     font-size: 18px;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 816px) {
+    .ladder {
+        bottom: 23%;
+        left: 41%;
+    }
+}
+@media only screen and (max-width: 974px) {
+    .ladder {
+        bottom: 22%;
+        left: 41%;
+    }
+}
+@media only screen and (max-width: 772px) {
+    .ladder {
+        bottom: 22%;
+        left: 40%;
+    }
 }
