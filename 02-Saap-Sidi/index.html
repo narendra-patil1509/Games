@@ -7,22 +7,14 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="heading">
-            <h1>Snake Ladder</h1>
+        <div class="head-center">
+            <div class="heading">
+                <h1>Snake Ladder</h1>
+            </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="player-section">
-                    <div class="join-player">
-                        <h4 style="color: aliceblue; font-weight: bolder; text-align: center;">Joined Player</h4>
-                    </div>
-                    <div class="players-box">
-                        <div class="P1" id="p1"></div>
-                        <div class="P1" id="p2"></div>
-                        <div class="P1" id="p3"></div>
-                        <div class="P1" id="p4"></div>
-                    </div>
-                </div>
+                
 
                 <!-- Board Start Here -->
                 <div class="white-border">
@@ -139,15 +131,28 @@
                 </div>
                 <!-- Board End Here -->
                 <div class="dice" id="dice">
+                    <div class="player-section">
+                        <div class="join-player">
+                            <h4 style="color: aliceblue; font-weight: bolder; text-align: center;">Joined Player</h4>
+                        </div>
+                        <div class="players-box">
+                            <div class="P1" id="p1"></div>
+                            <div class="P1" id="p2"></div>
+                            <div class="P1" id="p3"></div>
+                            <div class="P1" id="p4"></div>
+                        </div>
+                    </div>
                     <div class="sum">
                         <p id="sum">
                             <img id="dImage" src="images/Untitled design/1.png" alt="">
                         </p>
                     </div>
                     <div class="btn" onclick="rollDice()">
-                        <a target="_blank">Roll Dice</a>
+                        Roll Dice
                     </div>
+                    
                 </div>
+               
                 
             </div>
         </div>
