@@ -104,7 +104,7 @@ h1{
 .sum img{
     width: 90px;
     mix-blend-mode: luminosity;
-    -webkit-transform: rotate(180deg);
+    /* -webkit-transform: rotate(180deg); */
     transition: all .7s;
 }
 .ladder img{
@@ -152,16 +152,37 @@ h1{
 .circle{
     width: 30px;
     height: 30px;
+    border: 5px solid #ccc;
+    animation: spin 1s linear infinite;
     color: white;
     font-weight: bolder;
     background: rgba(0,0,0,0.5);/*turquoise*/
     border-radius: 50%;
     transform: translateY(-51px) translateX(21px);
-    transition: all .9s;
+}
+#circle1{
+    border-top-color: rgb(219, 243, 0);
+}
+#circle2{
+    border-bottom-color: rgb(44, 116, 8);
+}
+#circle3{
+    border-left-color: rgb(0, 221, 255);
+}
+#circle4{
+    border-right-color: rgb(155, 16, 197);
+}
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 .player{
-    /* top: 608px; 
-    left: 113px; */
+    top: 605px;
+    left: 30px;
     transition: all .9s;
     position: absolute;
     z-index: 9999;
@@ -205,8 +226,6 @@ h1{
     }
 }
 @media only screen and (max-width: 974px) {
-    .players-box{
-    }
     .ladder {
         bottom: 4%;
         left: 32%;
