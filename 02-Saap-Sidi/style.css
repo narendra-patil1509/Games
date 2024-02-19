@@ -119,6 +119,18 @@ h1{
     bottom: 4%;
     left: 32%;
 }
+.snake {
+    position: absolute;
+    transform: rotate(82deg);
+    bottom: 9%;
+    left: 57%;
+}
+.snake img{
+    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+    width: 166px;
+    z-index: 15;
+}
 .dice{
     margin: 12px;
     display: flex;
@@ -141,7 +153,6 @@ h1{
 .dice .btn{
     margin-top: 23px;
     cursor: pointer;
-  
     background-color: #f8e623;
     font-size: 20px;
     font-weight: 900;
@@ -224,17 +235,29 @@ h1{
         bottom: 23%;
         left: 41%;
     }
+    .snake {
+        bottom: 22%;
+        left: 40%;
+    }
 }
 @media only screen and (max-width: 974px) {
     .ladder {
         bottom: 4%;
         left: 32%;
     }
+    .snake {
+        bottom: 8%;
+        left: 57%;
+    }
 }
 @media only screen and (max-width: 859px) {
     .ladder {
         bottom: 22%;
         left: 42%;
+    }
+    .snake {
+        bottom: 25%;
+        left: 66%;
     }
     .dice {
         flex-direction: row;
@@ -256,10 +279,19 @@ h1{
         bottom: 22%;
         left: 41%;
     }
+
+    .snake {
+        bottom: 25%;
+        left: 68%;
+    }
 }
 @media only screen and (max-width: 772px) {
     .ladder {
         bottom: 22%;
         left: 40%;
+    }
+    .snake {
+        bottom: 25%;
+        left: 69%;
     }
 }
