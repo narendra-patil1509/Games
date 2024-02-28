@@ -229,6 +229,19 @@ h1{
     font-size: 18px;
     font-weight: bold;
 }
+#my-canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    /* visibility: hidden; */
+    pointer-events: none;
+}
+#my-canvas.active{
+    visibility: visible;
+}
 
 @media only screen and (max-width: 816px) {
     .ladder {
@@ -286,6 +299,17 @@ h1{
     }
 }
 @media only screen and (max-width: 772px) {
+    .ladder {
+        bottom: 22%;
+        left: 40%;
+    }
+    .snake {
+        bottom: 25%;
+        left: 69%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
     .ladder {
         bottom: 22%;
         left: 40%;
