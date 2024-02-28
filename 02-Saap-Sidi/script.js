@@ -55,6 +55,7 @@ function whichplayer(){
 function rollDice(){
     let p = parseInt(sessionStorage.getItem("Player-Number")); 
     generatedNumber = Math.floor((Math.random()*6)+1);
+    // generatedNumber = 6;
     if(generatedNumber == 6){
         o = p;
         // alert("You rolled a six! It's your turn again!",o);
@@ -65,6 +66,12 @@ function rollDice(){
         let ob1 = ps1.playerSum(generatedNumber);
         console.log("Player 1  Generated Num = ",generatedNumber);
         positionIteration(p,ob1);
+        if(ob1.currentNumbers > 90){
+            var confettiSettings = { target: 'my-canvas' };
+            var confetti = new ConfettiGenerator(confettiSettings);
+            confetti.render();
+            console.log("100 winner");
+        }
     }
     if(p == 2){
         button.style.background = "#00DDFF";
@@ -123,7 +130,7 @@ function rollDice(){
                 boxValue = document.getElementById("box8");
                 let tt = boxValue.offsetTop;
                 let ll = boxValue.offsetLeft;
-                ob.setCurrentNum(4);
+                ob.setCurrentNum(8);
                 playerMove(t,l,p);
                 setTimeout( ()=>{
                     saapSidi(tt,ll,p);
@@ -153,3 +160,4 @@ window.onload = ()=>{
         console.log("Onload P = ",p);
     }
 }
+
