@@ -60,18 +60,13 @@ function rollDice(){
         o = p;
         // alert("You rolled a six! It's your turn again!",o);
     }
-    if(p == 1){
+    if(p == 1){  
         button.style.background = "#2C7408";
         button.style.color = "#fff";
         let ob1 = ps1.playerSum(generatedNumber);
         console.log("Player 1  Generated Num = ",generatedNumber);
         positionIteration(p,ob1);
-        if(ob1.currentNumbers > 90){
-            var confettiSettings = { target: 'my-canvas' };
-            var confetti = new ConfettiGenerator(confettiSettings);
-            confetti.render();
-            console.log("100 winner");
-        }
+        
     }
     if(p == 2){
         button.style.background = "#00DDFF";
@@ -98,16 +93,29 @@ function rollDice(){
     diceImage.src = `images/Untitled design/${generatedNumber}.png`;
     diceImage.style.transform = `rotate(${2*generatedNumber*180}deg)`;
     diceSound.play();
-    // if(sum>=100){
-    //     console.log(sum,"sum");
-    //     button.removeAttribute("onclick");
-    //     button.style.display = 'none';
-    //     //Winneer Window will show here
-    // }
 
     function positionIteration(p,ob){
         let pns = 1;
         let cns = ob.currentNumbers;
+        if(cns >= 100){
+            let winnermsg = document.getElementById("winnermsg");
+            let popup = document.querySelector('.popup');
+            let confe = document.querySelector('#my-canvas');
+            
+            setTimeout( ()=>{
+                popup.classList.add('active');
+                confe.classList.add('active');
+                winnermsg.innerText = `Player ${p} is 🏆Winner🏆`
+            },1500);
+            var confettiSettings = { target: 'my-canvas' };
+            var confetti = new ConfettiGenerator(confettiSettings);
+            confetti.render();
+            console.log("100 winner");
+            setTimeout( ()=>{
+                popup.classList.remove('active');
+                confe.classList.remove('active');
+            },5000);
+        }
         for (let i = pns; i <= cns; i++) {
             let boxValue = document.getElementById("box"+ i);
             let t = boxValue.offsetTop;
