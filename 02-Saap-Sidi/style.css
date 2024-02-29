@@ -111,7 +111,7 @@ h1{
     -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
     width: 150px;
-    z-index: 15;
+    z-index: 97;
 }
 .ladder{
     position: absolute;
@@ -129,7 +129,7 @@ h1{
     -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
     width: 166px;
-    z-index: 15;
+    z-index: 98;
 }
 .dice{
     margin: 12px;
@@ -196,7 +196,7 @@ h1{
     left: 30px;
     transition: all .9s;
     position: absolute;
-    z-index: 9999;
+    z-index: 99;
 }
 .P1{
     text-align: center;
@@ -229,6 +229,37 @@ h1{
     font-size: 18px;
     font-weight: bold;
 }
+
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 450px;
+    height: 234px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1),
+    0 0 0 1000px rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    padding: 20px 40px 20px 40px !important;
+    z-index: 100;
+    visibility: hidden;
+}
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    background: #f00;
+    color: #fff;
+    cursor: pointer;
+}
+.popup.active{
+    width: fit-content;
+    transition: all ease 8s;
+    visibility: visible;
+}
 #my-canvas{
     position: fixed;
     top: 0;
@@ -236,7 +267,7 @@ h1{
     width: 100%;
     height: 100vh;
     z-index: 1000;
-    /* visibility: hidden; */
+    visibility: hidden;
     pointer-events: none;
 }
 #my-canvas.active{
