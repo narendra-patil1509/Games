@@ -61,33 +61,58 @@ function rollDice(){
         // alert("You rolled a six! It's your turn again!",o);
     }
     if(p == 1){  
+        
         button.style.background = "#2C7408";
         button.style.color = "#fff";
         let ob1 = ps1.playerSum(generatedNumber);
-        console.log("Player 1  Generated Num = ",generatedNumber);
+        if(ob1.getCurrentNum()>100){
+            o++
+        }
+        else{
+            console.log("Player 1  Generated Num = ",generatedNumber);
         positionIteration(p,ob1);
+        }
+        
         
     }
     if(p == 2){
         button.style.background = "#00DDFF";
         button.style.color = "#000";
         let ob2 = ps2.playerSum(generatedNumber);
-        console.log("Player 2 Generated Num = ",generatedNumber);
+        if(ob2.getCurrentNum()>100){
+            o++
+        }
+        else{
+            console.log("Player 2 Generated Num = ",generatedNumber);
         positionIteration(p,ob2);
+        }
+        
     }
     if(p == 3){
         button.style.background = "#9B10C5";
         button.style.color = "#fff";
         let ob3 = ps3.playerSum(generatedNumber);
-        console.log("Player 3 Generated Num = ",generatedNumber);
+        if(ob3.getCurrentNum()>100){
+            o++
+        }
+        else{
+            console.log("Player 3 Generated Num = ",generatedNumber);
         positionIteration(p,ob3);
+        }
+        
     }
     if(p == 4){
         button.style.background = "#DBF300";
         button.style.color = "#000";
         let ob4 = ps4.playerSum(generatedNumber);
-        console.log("Player 4 Generated Num = ",generatedNumber);
+        if(ob4.getCurrentNum()>100){
+            o++
+        }
+        else{
+            console.log("Player 4 Generated Num = ",generatedNumber);
         positionIteration(p,ob4);
+        }
+        
     }
     console.log("----------------------------------");
     diceImage.src = `images/Untitled design/${generatedNumber}.png`;
@@ -152,14 +177,22 @@ function rollDice(){
 }
 function saapSidi(tt,ll,p){
     let player = document.getElementById("player"+p);
-    player.style.top = tt+7+6+"px";
+
+    setTimeout( ()=>{
+        player.style.top = tt+7+6+"px";
     player.style.left = ll-4+16+"px";
+    },1000);
+    
 }
 
 function playerMove(t,l,p){
     let player = document.getElementById("player"+p);
-    player.style.top = t+12+"px";
+
+    setTimeout( ()=>{
+        player.style.top = t+12+"px";
     player.style.left = l+13+"px";
+    },1000);
+    
 }
 
 window.onload = ()=>{
