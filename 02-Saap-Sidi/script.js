@@ -62,8 +62,8 @@ function rollDice(){
     }
     if(p == 1){  
         
-        button.style.background = "#2C7408";
-        button.style.color = "#fff";
+        // button.style.background = "#2C7408";
+        button.style.color = "#000";
         let ob1 = ps1.playerSum(generatedNumber);
         if(ob1.getCurrentNum()>100){
             o++
@@ -76,7 +76,7 @@ function rollDice(){
         
     }
     if(p == 2){
-        button.style.background = "#00DDFF";
+        // button.style.background = "#00DDFF";
         button.style.color = "#000";
         let ob2 = ps2.playerSum(generatedNumber);
         if(ob2.getCurrentNum()>100){
@@ -89,8 +89,8 @@ function rollDice(){
         
     }
     if(p == 3){
-        button.style.background = "#9B10C5";
-        button.style.color = "#fff";
+        // button.style.background = "#9B10C5";
+        button.style.color = "#000";
         let ob3 = ps3.playerSum(generatedNumber);
         if(ob3.getCurrentNum()>100){
             o++
@@ -102,7 +102,7 @@ function rollDice(){
         
     }
     if(p == 4){
-        button.style.background = "#DBF300";
+        // button.style.background = "#DBF300";
         button.style.color = "#000";
         let ob4 = ps4.playerSum(generatedNumber);
         if(ob4.getCurrentNum()>100){
