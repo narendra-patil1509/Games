@@ -5,9 +5,11 @@ let circle = document.getElementById("circle");
 let diceImage = document.getElementById("dImage");
 let diceSound = new Audio("audio/diceSound.mp3");
 let btn = document.getElementById("dice");
+let playersbox = document.getElementById("players-box");
 let d = parseInt(sessionStorage.getItem("pp"));
 let p=1;
 let o=1;
+const winnersArray = [];
 
 class Player{
     constructor(){
@@ -15,6 +17,7 @@ class Player{
         this.previousNumbers = 1;
         this.currentNumbers = 0;
         this.generatedNumbers = 1;
+        this.winnerStatus = false;
     }
     playerSum(generatedNumbers){
         this.getCurrentNum();
@@ -29,6 +32,12 @@ class Player{
     }
     setsumsNum(sums){
         this.sums;                                       
+    }
+    setWinnerStatus(status){
+        this.winnerStatus = status;
+    }
+    getWinnerStatus(){
+        return this.winnerStatus;
     }
     getCurrentNum(){
        return this.currentNumbers;                                       
@@ -65,12 +74,14 @@ function rollDice(){
         // button.style.background = "#2C7408";
         button.style.color = "#000";
         let ob1 = ps1.playerSum(generatedNumber);
-        if(ob1.getCurrentNum()>100){
-            o++
+        if(ps1.getWinnerStatus()){
+            
+            console.log("Winner Status ",ps1.getWinnerStatus(),"player ",p);
+            
         }
         else{
             console.log("Player 1  Generated Num = ",generatedNumber);
-        positionIteration(p,ob1);
+            positionIteration(p,ob1);
         }
         
         
@@ -79,8 +90,9 @@ function rollDice(){
         // button.style.background = "#00DDFF";
         button.style.color = "#000";
         let ob2 = ps2.playerSum(generatedNumber);
-        if(ob2.getCurrentNum()>100){
-            o++
+        if(ps2.getWinnerStatus()){
+            
+            console.log("Winner Status ",ps2.getWinnerStatus(),"player ",p);
         }
         else{
             console.log("Player 2 Generated Num = ",generatedNumber);
@@ -92,8 +104,9 @@ function rollDice(){
         // button.style.background = "#9B10C5";
         button.style.color = "#000";
         let ob3 = ps3.playerSum(generatedNumber);
-        if(ob3.getCurrentNum()>100){
-            o++
+        if(ps3.getWinnerStatus()){
+            
+            console.log("Winner Status ",ps3.getWinnerStatus(),"player ",p);
         }
         else{
             console.log("Player 3 Generated Num = ",generatedNumber);
@@ -105,8 +118,9 @@ function rollDice(){
         // button.style.background = "#DBF300";
         button.style.color = "#000";
         let ob4 = ps4.playerSum(generatedNumber);
-        if(ob4.getCurrentNum()>100){
-            o++
+        if(ps4.getWinnerStatus()){
+            
+            console.log("Winner Status ",ps4.getWinnerStatus(),"player ",p);
         }
         else{
             console.log("Player 4 Generated Num = ",generatedNumber);
@@ -120,58 +134,79 @@ function rollDice(){
     diceSound.play();
 
     function positionIteration(p,ob){
+        let winnermsg = document.getElementById("winnermsg");
+        let popup = document.querySelector('.popup');
+        let confe = document.querySelector('#my-canvas');
+
+        var confettiSettings = { target: 'my-canvas' };
+        var confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+        
         let pns = 1;
         let cns = ob.currentNumbers;
-        if(cns >= 100){
-            let winnermsg = document.getElementById("winnermsg");
-            let popup = document.querySelector('.popup');
-            let confe = document.querySelector('#my-canvas');
+        if(cns == 100){
+            // winner status set
+            ob.setWinnerStatus(true);
+
+            //pushing winner in Array
+            winnersArray.push(p);
             
             setTimeout( ()=>{
                 popup.classList.add('active');
                 confe.classList.add('active');
                 winnermsg.innerText = `Player ${p} is 🏆Winner🏆`
             },1500);
-            var confettiSettings = { target: 'my-canvas' };
-            var confetti = new ConfettiGenerator(confettiSettings);
-            confetti.render();
+            
             console.log("100 winner");
             setTimeout( ()=>{
                 popup.classList.remove('active');
                 confe.classList.remove('active');
             },5000);
         }
-        for (let i = pns; i <= cns; i++) {
-            let boxValue = document.getElementById("box"+ i);
-            let t = boxValue.offsetTop;
-            let l = boxValue.offsetLeft;
+        
+        if(cns<101){
+            for (let i = pns; i <= cns; i++) {
+                let boxValue = document.getElementById("box"+ i);
+                let t = boxValue.offsetTop;
+                let l = boxValue.offsetLeft;
+                
+                if(cns == 5){
+                    //Sidi functionality 5 to 25 only(Jump from 5 to 26)
+                    boxValue = document.getElementById("box26");
+                    let tt = boxValue.offsetTop;
+                    let ll = boxValue.offsetLeft;
+                    ob.setCurrentNum(26);
+                    playerMove(t,l,p);
+                    setTimeout( ()=>{
+                        saapSidi(tt,ll,p);
+                    },1500)
+                }
+                else if(cns == 31){
+                    //Saap functionality 34 to 4 only(Jump from 34 to 4)
+                    sum = 8;
+                    boxValue = document.getElementById("box8");
+                    let tt = boxValue.offsetTop;
+                    let ll = boxValue.offsetLeft;
+                    ob.setCurrentNum(8);
+                    playerMove(t,l,p);
+                    setTimeout( ()=>{
+                        saapSidi(tt,ll,p);
+                    },1500);
+                }
+                else{
+                    playerMove(t,l,p);
+                }            
+            }
+            console.log("Winner List ", winnersArray);
+            for(let j=0;j<winnersArray.length;j++){
+                playersbox.innerHTML += "<p>"+winnersArray[j]+"</p>"
+            }
             
-            if(cns == 5){
-                //Sidi functionality 5 to 25 only(Jump from 5 to 26)
-                boxValue = document.getElementById("box26");
-                let tt = boxValue.offsetTop;
-                let ll = boxValue.offsetLeft;
-                ob.setCurrentNum(26);
-                playerMove(t,l,p);
-                setTimeout( ()=>{
-                    saapSidi(tt,ll,p);
-                },1500)
-            }
-            else if(cns == 31){
-                //Saap functionality 34 to 4 only(Jump from 34 to 4)
-                sum = 8;
-                boxValue = document.getElementById("box8");
-                let tt = boxValue.offsetTop;
-                let ll = boxValue.offsetLeft;
-                ob.setCurrentNum(8);
-                playerMove(t,l,p);
-                setTimeout( ()=>{
-                    saapSidi(tt,ll,p);
-                },1500);
-            }
-            else{
-                playerMove(t,l,p);
-            }            
+        }
+        else if(cns>100){
+            cns = ob.setCurrentNum(cns-generatedNumber);
+            console.log("Set CurrentNum after 100 = ",ob.getCurrentNum());
+            
         }
     }
 }
