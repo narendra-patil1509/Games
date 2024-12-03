@@ -75,7 +75,8 @@ function rollDice(){
         button.style.color = "#000";
         let ob1 = ps1.playerSum(generatedNumber);
         if(ps1.getWinnerStatus()){
-            
+            sessionStorage.setItem("Player-Number",p);
+            p++;
             console.log("Winner Status ",ps1.getWinnerStatus(),"player ",p);
             
         }
@@ -91,7 +92,8 @@ function rollDice(){
         button.style.color = "#000";
         let ob2 = ps2.playerSum(generatedNumber);
         if(ps2.getWinnerStatus()){
-            
+            sessionStorage.setItem("Player-Number",p);
+            p++;
             console.log("Winner Status ",ps2.getWinnerStatus(),"player ",p);
         }
         else{
@@ -105,7 +107,8 @@ function rollDice(){
         button.style.color = "#000";
         let ob3 = ps3.playerSum(generatedNumber);
         if(ps3.getWinnerStatus()){
-            
+            sessionStorage.setItem("Player-Number",p);
+            p++;
             console.log("Winner Status ",ps3.getWinnerStatus(),"player ",p);
         }
         else{
@@ -119,7 +122,8 @@ function rollDice(){
         button.style.color = "#000";
         let ob4 = ps4.playerSum(generatedNumber);
         if(ps4.getWinnerStatus()){
-            
+            sessionStorage.setItem("Player-Number",p);
+            p=1;
             console.log("Winner Status ",ps4.getWinnerStatus(),"player ",p);
         }
         else{
