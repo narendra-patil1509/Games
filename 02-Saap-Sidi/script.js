@@ -73,62 +73,81 @@ function rollDice(){
         
         // button.style.background = "#2C7408";
         button.style.color = "#000";
-        let ob1 = ps1.playerSum(generatedNumber);
+        
         if(ps1.getWinnerStatus()){
-            sessionStorage.setItem("Player-Number",p);
-            p++;
-            console.log("Winner Status ",ps1.getWinnerStatus(),"player ",p);
+            sessionStorage.setItem("Player-Number",2);
+            o++;
+            document.getElementById('p1').innerText = '<div class="P1" id="p1">1</div>';
+            console.log("Winner Status ",ps1.getWinnerStatus(),"player ",o);
             
         }
-        else{
+        else if(!(ps1.getWinnerStatus())){
+            let ob1 = ps1.playerSum(generatedNumber);
             console.log("Player 1  Generated Num = ",generatedNumber);
             positionIteration(p,ob1);
         }
-        
+        if(ps2.getWinnerStatus()){
+            o=3;
+        }
         
     }
     if(p == 2){
         // button.style.background = "#00DDFF";
         button.style.color = "#000";
-        let ob2 = ps2.playerSum(generatedNumber);
+        
         if(ps2.getWinnerStatus()){
-            sessionStorage.setItem("Player-Number",p);
-            p++;
-            console.log("Winner Status ",ps2.getWinnerStatus(),"player ",p);
+            sessionStorage.setItem("Player-Number",3);
+            o++;
+            document.getElementById('p2').innerText = '<div class="P1" id="p2">2</div>';
+            console.log("Winner Status ",ps2.getWinnerStatus(),"player ",o);
         }
-        else{
+        else if(!(ps2.getWinnerStatus())){
+            let ob2 = ps2.playerSum(generatedNumber);
             console.log("Player 2 Generated Num = ",generatedNumber);
         positionIteration(p,ob2);
+        }
+        if(ps3.getWinnerStatus()){
+            o=4;
         }
         
     }
     if(p == 3){
         // button.style.background = "#9B10C5";
         button.style.color = "#000";
-        let ob3 = ps3.playerSum(generatedNumber);
+        
         if(ps3.getWinnerStatus()){
-            sessionStorage.setItem("Player-Number",p);
-            p++;
-            console.log("Winner Status ",ps3.getWinnerStatus(),"player ",p);
+            sessionStorage.setItem("Player-Number",4);
+            o++;
+            document.getElementById('p3').innerText = '<div class="P1" id="p3">3</div>';
+            console.log("Winner Status ",ps3.getWinnerStatus(),"player ",o);
         }
-        else{
+        else if(!(ps3.getWinnerStatus())){
+            let ob3 = ps3.playerSum(generatedNumber);
             console.log("Player 3 Generated Num = ",generatedNumber);
         positionIteration(p,ob3);
+        }
+        if(ps4.getWinnerStatus()){
+            o=1;
         }
         
     }
     if(p == 4){
         // button.style.background = "#DBF300";
         button.style.color = "#000";
-        let ob4 = ps4.playerSum(generatedNumber);
+        
         if(ps4.getWinnerStatus()){
-            sessionStorage.setItem("Player-Number",p);
-            p=1;
-            console.log("Winner Status ",ps4.getWinnerStatus(),"player ",p);
+            sessionStorage.setItem("Player-Number",1);
+            o=1;
+            document.getElementById('p4').innerText = '<div class="P1" id="p4">4</div>';
+            console.log("Winner Status ",ps4.getWinnerStatus(),"player ",o);
         }
-        else{
+        else if(!(ps4.getWinnerStatus())){
+            let ob4 = ps4.playerSum(generatedNumber);
             console.log("Player 4 Generated Num = ",generatedNumber);
         positionIteration(p,ob4);
+        }
+        if(ps1.getWinnerStatus()){
+            o=2;
         }
         
     }
@@ -203,7 +222,7 @@ function rollDice(){
             }
             console.log("Winner List ", winnersArray);
             for(let j=0;j<winnersArray.length;j++){
-                playersbox.innerHTML += "<p>"+winnersArray[j]+"</p>"
+                // playersbox.innerHTML += "<p>"+winnersArray[j]+"</p>"
             }
             
         }
@@ -228,8 +247,8 @@ function playerMove(t,l,p){
     let player = document.getElementById("player"+p);
 
     setTimeout( ()=>{
-        player.style.top = t+12+"px";
-    player.style.left = l+13+"px";
+        player.style.top = t+12+3+"px";
+    player.style.left = l+13+3+"px";
     },1000);
     
 }
