@@ -77,7 +77,7 @@ function rollDice(){
         if(ps1.getWinnerStatus()){
             sessionStorage.setItem("Player-Number",2);
             o++;
-            document.getElementById('p1').innerText = '<div class="P1" id="p1">1</div>';
+           
             console.log("Winner Status ",ps1.getWinnerStatus(),"player ",o);
             
         }
@@ -98,7 +98,7 @@ function rollDice(){
         if(ps2.getWinnerStatus()){
             sessionStorage.setItem("Player-Number",3);
             o++;
-            document.getElementById('p2').innerText = '<div class="P1" id="p2">2</div>';
+            
             console.log("Winner Status ",ps2.getWinnerStatus(),"player ",o);
         }
         else if(!(ps2.getWinnerStatus())){
@@ -118,7 +118,7 @@ function rollDice(){
         if(ps3.getWinnerStatus()){
             sessionStorage.setItem("Player-Number",4);
             o++;
-            document.getElementById('p3').innerText = '<div class="P1" id="p3">3</div>';
+            
             console.log("Winner Status ",ps3.getWinnerStatus(),"player ",o);
         }
         else if(!(ps3.getWinnerStatus())){
@@ -138,7 +138,7 @@ function rollDice(){
         if(ps4.getWinnerStatus()){
             sessionStorage.setItem("Player-Number",1);
             o=1;
-            document.getElementById('p4').innerText = '<div class="P1" id="p4">4</div>';
+            
             console.log("Winner Status ",ps4.getWinnerStatus(),"player ",o);
         }
         else if(!(ps4.getWinnerStatus())){
@@ -178,6 +178,7 @@ function rollDice(){
                 popup.classList.add('active');
                 confe.classList.add('active');
                 winnermsg.innerText = `Player ${p} is 🏆Winner🏆`
+                document.getElementById(`p${p}`).innerText = p;
             },1500);
             
             console.log("100 winner");
