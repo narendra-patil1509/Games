@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice</title>
+</head>
+<style>
+     /* From Uiverse.io by RodolpheANDRIEUX */ 
+     
+.cube-container {
+  width: 200px;
+  height: 200px;
+  perspective: 800px;
+  margin: 50px auto;
+  transition: 0.8s ease-out;
+}
+
+.cube-container:hover {
+  transform: scale(3);
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotate 8s infinite linear;
+}
+
+.face {
+  --french: linear-gradient(
+      to right,
+      #0000ff,
+      #ffffff,
+      #ffffff,
+      #ffffff,
+      #ff0000
+    )
+    1;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  line-height: 200px;
+  background: #000000cc;
+  border: 2px solid;
+  border-image: var(--french);
+}
+
+.front {
+  transform: translateZ(100px);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+</style>
+<body>
+    <div class="cube-container">
+        <div class="cube">
+            <img class="face front" src="./images/Untitled design/1.png" alt="">
+            <img class="face back" src="./images/Untitled design/2.png" alt="">
+            <img class="face right" src="./images/Untitled design/3.png" alt="">
+            <img class="face left" src="./images/Untitled design/4.png" alt="">
+            <img class="face top" src="./images/Untitled design/5.png" alt="">
+            <img class="face bottom" src="./images/Untitled design/6.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
