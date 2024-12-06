@@ -222,10 +222,6 @@ function rollDice(){
                 }            
             }
             console.log("Winner List ", winnersArray);
-            for(let j=0;j<winnersArray.length;j++){
-                // playersbox.innerHTML += "<p>"+winnersArray[j]+"</p>"
-            }
-            
         }
         else if(cns>100){
             cns = ob.setCurrentNum(cns-generatedNumber);
@@ -248,9 +244,9 @@ function playerMove(t,l,p){
     let player = document.getElementById("player"+p);
 
     setTimeout( ()=>{
-        player.style.top = t+12+3+"px";
-    player.style.left = l+13+3+"px";
-    },1000);
+        player.style.top = t+12+3-1+"px";
+    player.style.left = l+13+3-2+"px";
+    },1500);
     
 }
 
