@@ -178,7 +178,7 @@ function rollDice(){
                 popup.classList.add('active');
                 confe.classList.add('active');
                 winnermsg.innerText = `Player ${p} is 🏆Winner🏆`
-                document.getElementById(`p${p}`).innerText = p;
+                // document.getElementById(`p${p}`).innerText = p;
             },1500);
             
             console.log("100 winner");
@@ -221,12 +221,11 @@ function rollDice(){
                     playerMove(t,l,p);
                 }            
             }
-            console.log("Winner List ", winnersArray);
+            
         }
         else if(cns>100){
             cns = ob.setCurrentNum(cns-generatedNumber);
             console.log("Set CurrentNum after 100 = ",ob.getCurrentNum());
-            
         }
     }
 }
