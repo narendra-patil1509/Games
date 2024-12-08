@@ -260,15 +260,23 @@ h1{
     border-radius: 50%;
 }
 #p1{
+    color: #4e4e4e;
+    font-weight: bold;
     background-color: yellow;
 }
 #p2{
+    color: #fff;
+    font-weight: bold;
     background-color: rgb(44, 116, 8);
 }
 #p3{
+    color: #4e4e4e;
+    font-weight: bold;
     background-color: rgb(0, 221, 255);
 }
 #p4{
+    color: #fff;
+    font-weight: bold;
     background-color: rgb(155, 16, 197);
 }
 .sum{
