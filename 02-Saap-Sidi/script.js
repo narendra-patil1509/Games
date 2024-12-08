@@ -173,6 +173,7 @@ function rollDice(){
 
             //pushing winner in Array
             winnersArray.push(p);
+            document.getElementById('players-box').innerHTML +=  `<div class="P1" id="p${p}">P${p}</div>`;
             
             setTimeout( ()=>{
                 popup.classList.add('active');
