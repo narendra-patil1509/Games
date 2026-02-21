@@ -1,259 +1,207 @@
-let generatedNumber;
-let dice = document.getElementById("sum");
-let button = document.getElementById("btn");
-let circle = document.getElementById("circle");
-let diceImage = document.getElementById("dImage");
-let diceSound = new Audio("audio/diceSound.mp3");
-let btn = document.getElementById("dice");
-let playersbox = document.getElementById("players-box");
-let d = parseInt(sessionStorage.getItem("pp"));
-let p=1;
-let o=1;
-const winnersArray = [];
+const socket = io();
 
-class Player{
-    constructor(){
-        this.sums = 0;
-        this.previousNumbers = 1;
-        this.currentNumbers = 0;
-        this.generatedNumbers = 1;
-        this.winnerStatus = false;
-    }
-    playerSum(generatedNumbers){
-        this.getCurrentNum();
-        this.sums+= generatedNumbers;
-        this.currentNumbers = this.getCurrentNum()+ generatedNumber;
-        this.previousNumbers = this.currentNumbers - this.previousNumbers;
-        console.log("Player Current Sum = ",this.currentNumbers);
-        return this;
-    }
-    setCurrentNum(cu){
-        this.currentNumbers = cu;                                       
-    }
-    setsumsNum(sums){
-        this.sums;                                       
-    }
-    setWinnerStatus(status){
-        this.winnerStatus = status;
-    }
-    getWinnerStatus(){
-        return this.winnerStatus;
-    }
-    getCurrentNum(){
-       return this.currentNumbers;                                       
-    }
-    getsumsNum(){
-       return this.sums;                                       
-    }
-}
+let myPlayerName = '';
+let myRoomId = '';
+let players = [];
+let currentTurn = '';
+let gameState = 'waiting';
 
-let ps1 = new Player();
-let ps2 = new Player();
-let ps3 = new Player();
-let ps4 = new Player();
+// DOM Elements
+const joinOverlay = document.getElementById('join-overlay');
+const playerNameInput = document.getElementById('player-name');
+const roomIdInput = document.getElementById('room-id');
+const createBtn = document.getElementById('create-btn');
+const joinBtn = document.getElementById('join-btn');
+const currentRoomIdSpan = document.getElementById('current-room-id');
+const currentPlayerTurnSpan = document.getElementById('current-player-turn');
+const startGameBtn = document.getElementById('start-game-btn');
+const quitGameBtn = document.getElementById('quit-game-btn');
+const playersList = document.getElementById('players-list');
+const rollDiceBtn = document.getElementById('btn');
+const diceImage = document.getElementById("dImage");
+const diceSound = new Audio("audio/diceSound.mp3");
 
-function whichplayer(){
-    if(o==5){
-        o=1;
+// Persistence: Check if already in a room
+window.onload = () => {
+    const savedName = localStorage.getItem('playerName');
+    const savedRoom = localStorage.getItem('roomId');
+    if (savedName && savedRoom) {
+        playerNameInput.value = savedName;
+        roomIdInput.value = savedRoom;
     }
-    sessionStorage.setItem("Player-Number",o);
-    o++;
-    rollDice();
-}
+};
 
-function rollDice(){
-    let p = parseInt(sessionStorage.getItem("Player-Number")); 
-    generatedNumber = Math.floor((Math.random()*6)+1);
-    // generatedNumber = 6;
-    if(generatedNumber == 6){
-        o = p;
-        // alert("You rolled a six! It's your turn again!",o);
+createBtn.addEventListener('click', () => {
+    const name = playerNameInput.value.trim();
+    if (name) {
+        myPlayerName = name;
+        const generatedRoomId = Math.random().toString(36).substring(2, 8).toUpperCase();
+        myRoomId = generatedRoomId;
+        localStorage.setItem('playerName', name);
+        localStorage.setItem('roomId', myRoomId);
+        socket.emit('joinRoom', { roomId: myRoomId, playerName: name });
+        joinOverlay.style.display = 'none';
+    } else {
+        alert('Please enter your name');
     }
-    if(p == 1){  
-        
-        // button.style.background = "#2C7408";
-        button.style.color = "#000";
-        
-        if(ps1.getWinnerStatus()){
-            sessionStorage.setItem("Player-Number",2);
-            o++;
-           
-            console.log("Winner Status ",ps1.getWinnerStatus(),"player ",o);
-            
-        }
-        else if(!(ps1.getWinnerStatus())){
-            let ob1 = ps1.playerSum(generatedNumber);
-            console.log("Player 1  Generated Num = ",generatedNumber);
-            positionIteration(p,ob1);
-        }
-        if(ps2.getWinnerStatus()){
-            o=3;
-        }
-        
-    }
-    if(p == 2){
-        // button.style.background = "#00DDFF";
-        button.style.color = "#000";
-        
-        if(ps2.getWinnerStatus()){
-            sessionStorage.setItem("Player-Number",3);
-            o++;
-            
-            console.log("Winner Status ",ps2.getWinnerStatus(),"player ",o);
-        }
-        else if(!(ps2.getWinnerStatus())){
-            let ob2 = ps2.playerSum(generatedNumber);
-            console.log("Player 2 Generated Num = ",generatedNumber);
-        positionIteration(p,ob2);
-        }
-        if(ps3.getWinnerStatus()){
-            o=4;
-        }
-        
-    }
-    if(p == 3){
-        // button.style.background = "#9B10C5";
-        button.style.color = "#000";
-        
-        if(ps3.getWinnerStatus()){
-            sessionStorage.setItem("Player-Number",4);
-            o++;
-            
-            console.log("Winner Status ",ps3.getWinnerStatus(),"player ",o);
-        }
-        else if(!(ps3.getWinnerStatus())){
-            let ob3 = ps3.playerSum(generatedNumber);
-            console.log("Player 3 Generated Num = ",generatedNumber);
-        positionIteration(p,ob3);
-        }
-        if(ps4.getWinnerStatus()){
-            o=1;
-        }
-        
-    }
-    if(p == 4){
-        // button.style.background = "#DBF300";
-        button.style.color = "#000";
-        
-        if(ps4.getWinnerStatus()){
-            sessionStorage.setItem("Player-Number",1);
-            o=1;
-            
-            console.log("Winner Status ",ps4.getWinnerStatus(),"player ",o);
-        }
-        else if(!(ps4.getWinnerStatus())){
-            let ob4 = ps4.playerSum(generatedNumber);
-            console.log("Player 4 Generated Num = ",generatedNumber);
-        positionIteration(p,ob4);
-        }
-        if(ps1.getWinnerStatus()){
-            o=2;
-        }
-        
-    }
-    console.log("----------------------------------");
-    diceImage.src = `images/Untitled design/${generatedNumber}.png`;
-    diceImage.style.transform = `rotate(${2*generatedNumber*180}deg)`;
-    diceSound.play();
+});
 
-    function positionIteration(p,ob){
-        let winnermsg = document.getElementById("winnermsg");
-        let popup = document.querySelector('.popup');
-        let confe = document.querySelector('#my-canvas');
+joinBtn.addEventListener('click', () => {
+    const name = playerNameInput.value.trim();
+    const room = roomIdInput.value.trim().toUpperCase();
+    if (name && room) {
+        myPlayerName = name;
+        myRoomId = room;
+        localStorage.setItem('playerName', name);
+        localStorage.setItem('roomId', room);
+        socket.emit('joinRoom', { roomId: room, playerName: name });
+        joinOverlay.style.display = 'none';
+    } else {
+        alert('Please enter both name and Room ID');
+    }
+});
 
-        var confettiSettings = { target: 'my-canvas' };
-        var confetti = new ConfettiGenerator(confettiSettings);
-        confetti.render();
-        
-        let pns = 1;
-        let cns = ob.currentNumbers;
-        if(cns == 100){
-            // winner status set
-            ob.setWinnerStatus(true);
+rollDiceBtn.addEventListener('click', () => {
+    if (currentTurn === myPlayerName && gameState === 'playing') {
+        socket.emit('rollDice');
+    }
+});
 
-            //pushing winner in Array
-            winnersArray.push(p);
-            document.getElementById('players-box').innerHTML +=  `<div class="P1" id="p${p}">P${p}</div>`;
-            
-            setTimeout( ()=>{
-                popup.classList.add('active');
-                confe.classList.add('active');
-                winnermsg.innerText = `Player ${p} is 🏆Winner🏆`
-                // document.getElementById(`p${p}`).innerText = p;
-            },1500);
-            
-            console.log("100 winner");
-            setTimeout( ()=>{
-                popup.classList.remove('active');
-                confe.classList.remove('active');
-            },5000);
-        }
-        
-        if(cns<101){
-            for (let i = pns; i <= cns; i++) {
-                let boxValue = document.getElementById("box"+ i);
-                let t = boxValue.offsetTop;
-                let l = boxValue.offsetLeft;
-                
-                if(cns == 5){
-                    //Sidi functionality 5 to 25 only(Jump from 5 to 26)
-                    boxValue = document.getElementById("box26");
-                    let tt = boxValue.offsetTop;
-                    let ll = boxValue.offsetLeft;
-                    ob.setCurrentNum(26);
-                    playerMove(t,l,p);
-                    setTimeout( ()=>{
-                        saapSidi(tt,ll,p);
-                    },1500)
-                }
-                else if(cns == 31){
-                    //Saap functionality 34 to 4 only(Jump from 34 to 4)
-                    sum = 8;
-                    boxValue = document.getElementById("box8");
-                    let tt = boxValue.offsetTop;
-                    let ll = boxValue.offsetLeft;
-                    ob.setCurrentNum(8);
-                    playerMove(t,l,p);
-                    setTimeout( ()=>{
-                        saapSidi(tt,ll,p);
-                    },1500);
-                }
-                else{
-                    playerMove(t,l,p);
-                }            
+startGameBtn.addEventListener('click', () => {
+    socket.emit('startGame');
+});
+
+quitGameBtn.addEventListener('click', () => {
+    if (confirm('Are you sure you want to quit?')) {
+        socket.emit('quitGame');
+        localStorage.removeItem('roomId');
+        location.reload();
+    }
+});
+
+socket.on('roomUpdate', (data) => {
+    players = data.players;
+    currentTurn = data.currentTurn;
+    gameState = data.gameState;
+
+    updateUI();
+});
+
+socket.on('diceRolled', (data) => {
+    // Animate dice and move player
+    animateDice(data.roll);
+    movePlayer(data.playerName, data.newPosition);
+});
+
+socket.on('error', (msg) => {
+    alert(msg);
+    joinOverlay.style.display = 'flex';
+});
+
+function updateUI() {
+    currentRoomIdSpan.innerText = myRoomId;
+    currentPlayerTurnSpan.innerText = currentTurn || 'Waiting...';
+
+    // Players list UI
+    playersList.innerHTML = '';
+    players.forEach(p => {
+        const div = document.createElement('div');
+        div.className = p.online ? 'player-online' : 'player-offline';
+        if (p.name === currentTurn) div.classList.add('active-turn');
+        div.innerText = `${p.name} ${p.name === myPlayerName ? '(You)' : ''} - Pos: ${p.position}`;
+        playersList.appendChild(div);
+
+        // Update board tokens
+        const playerIndex = players.indexOf(p) + 1;
+        const playerToken = document.getElementById(`player${playerIndex}`);
+        if (playerToken) {
+            playerToken.style.display = 'block';
+            // Set color based on index or property if available
+            const circle = document.getElementById(`circle${playerIndex}`);
+            circle.style.borderColor = p.color || '#fff';
+
+            // Only update position if not currently moving (animation will handle it)
+            // But for initial load/sync:
+            if (!playerToken.moving) {
+                updateTokenPosition(playerToken, p.position);
             }
-            
         }
-        else if(cns>100){
-            cns = ob.setCurrentNum(cns-generatedNumber);
-            console.log("Set CurrentNum after 100 = ",ob.getCurrentNum());
-        }
+    });
+
+    // Start game button visibility (only for first player as host-like)
+    if (gameState === 'waiting' && players.length >= 2 && players[0].name === myPlayerName) {
+        startGameBtn.style.display = 'block';
+    } else {
+        startGameBtn.style.display = 'none';
     }
-}
-function saapSidi(tt,ll,p){
-    let player = document.getElementById("player"+p);
 
-    setTimeout( ()=>{
-        player.style.top = tt+7+6+"px";
-    player.style.left = ll-4+16+"px";
-    },1000);
-    
-}
+    // Disable roll button if not my turn OR if I already won
+    const me = players.find(p => p.name === myPlayerName);
+    if (currentTurn === myPlayerName && gameState === 'playing' && me && !me.winner) {
+        rollDiceBtn.classList.remove('btn-disabled');
+    } else {
+        rollDiceBtn.classList.add('btn-disabled');
+    }
 
-function playerMove(t,l,p){
-    let player = document.getElementById("player"+p);
-
-    setTimeout( ()=>{
-        player.style.top = t+12+3-1+"px";
-    player.style.left = l+13+3-2+"px";
-    },1500);
-    
-}
-
-window.onload = ()=>{
-    if(p!=null){
-        p=1;
-        console.log("Onload P = ",p);
+    // Special message for winners
+    if (me && me.winner) {
+        currentPlayerTurnSpan.innerText = "You Won! 🎉";
     }
 }
 
+function updateTokenPosition(token, pos) {
+    const box = document.getElementById('box' + pos);
+    if (box) {
+        token.style.top = (box.offsetTop + 12) + "px";
+        token.style.left = (box.offsetLeft + 13) + "px";
+    }
+}
+
+function animateDice(num) {
+    diceImage.src = `images/Untitled design/${num}.png`;
+    diceImage.style.transform = `rotate(${360 * 2}deg)`;
+    diceSound.play();
+    setTimeout(() => {
+        diceImage.style.transform = `rotate(0deg)`;
+    }, 1000);
+}
+
+function movePlayer(playerName, targetPos) {
+    const player = players.find(p => p.name === playerName);
+    const playerIndex = players.indexOf(player) + 1;
+    const playerToken = document.getElementById(`player${playerIndex}`);
+
+    if (!playerToken) return;
+
+    playerToken.moving = true;
+
+    // We could animate step-by-step for better UX
+    // For now, let's just jump to the target after a short delay to match dice animation
+    setTimeout(() => {
+        updateTokenPosition(playerToken, targetPos);
+        playerToken.moving = false;
+
+        if (targetPos === 100) {
+            showWinner(playerName);
+        }
+    }, 1000);
+}
+
+function showWinner(name) {
+    const winnermsg = document.getElementById("winnermsg");
+    const popup = document.querySelector('.popup');
+    const confe = document.querySelector('#my-canvas');
+
+    var confettiSettings = { target: 'my-canvas' };
+    var confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
+
+    popup.classList.add('active');
+    confe.classList.add('active');
+    winnermsg.innerText = `${name} is 🏆Winner🏆`;
+
+    setTimeout(() => {
+        popup.classList.remove('active');
+        confe.classList.remove('active');
+    }, 5000);
+}

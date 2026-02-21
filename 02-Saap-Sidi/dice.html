@@ -4,97 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice</title>
-</head>
-<style>
-     /* From Uiverse.io by RodolpheANDRIEUX */ 
-     
-.cube-container {
-  width: 200px;
-  height: 200px;
-  perspective: 800px;
-  margin: 50px auto;
-  transition: 0.8s ease-out;
-}
-
-.cube-container:hover {
-  transform: scale(3);
+    <style>
+        .cube-container {
+    background-color: aqua;
+    width: 100px; /* Reduced size */
+    height: 100px; /* Reduced size */
+    perspective: 800px;
+    margin: 50px auto;
+    cursor: pointer;
 }
 
 .cube {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  animation: rotate 8s infinite linear;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease-out;
 }
 
 .face {
-  --french: linear-gradient(
-      to right,
-      #0000ff,
-      #ffffff,
-      #ffffff,
-      #ffffff,
-      #ff0000
-    )
-    1;
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  color: white;
-  font-size: 18px;
-  text-align: center;
-  line-height: 200px;
-  background: #000000cc;
-  border: 2px solid;
-  border-image: var(--french);
+    position: absolute;
+    width: 100px; /* Reduced size */
+    height: 100px; /* Reduced size */
+    color: white;
+    font-size: 12px; /* Reduced font size to match the smaller cube */
+    text-align: center;
+    line-height: 100px; /* Adjusted to align text vertically */
+    background: #000000cc;
+    border: 2px solid #fff;
 }
 
-.front {
-  transform: translateZ(100px);
-}
+.front { transform: translateZ(50px); }
+.back { transform: rotateY(180deg) translateZ(50px); }
+.right { transform: rotateY(90deg) translateZ(50px); }
+.left { transform: rotateY(-90deg) translateZ(50px); }
+.top { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
 
-.back {
-  transform: rotateY(180deg) translateZ(100px);
-}
 
-.right {
-  transform: rotateY(90deg) translateZ(100px);
-}
+        .roll-button {
+            display: block;
+            width: 150px;
+            padding: 10px;
+            margin: 20px auto;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-.left {
-  transform: rotateY(-90deg) translateZ(100px);
-}
+        .roll-button:hover {
+            background-color: #45a049;
+        }
 
-.top {
-  transform: rotateX(90deg) translateZ(100px);
-}
-
-.bottom {
-  transform: rotateX(-90deg) translateZ(100px);
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotateX(0) rotateY(0) rotateZ(0);
-  }
-
-  100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-  }
-}
-
-</style>
+        .number-display {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
 <body>
     <div class="cube-container">
         <div class="cube">
-            <img class="face front" src="./images/Untitled design/1.png" alt="">
-            <img class="face back" src="./images/Untitled design/2.png" alt="">
-            <img class="face right" src="./images/Untitled design/3.png" alt="">
-            <img class="face left" src="./images/Untitled design/4.png" alt="">
-            <img class="face top" src="./images/Untitled design/5.png" alt="">
-            <img class="face bottom" src="./images/Untitled design/6.png" alt="">
+            <img class="face front" src="./images/Untitled design/1.png" alt="1">
+            <img class="face back" src="./images/Untitled design/2.png" alt="2">
+            <img class="face right" src="./images/Untitled design/3.png" alt="3">
+            <img class="face left" src="./images/Untitled design/4.png" alt="4">
+            <img class="face top" src="./images/Untitled design/5.png" alt="5">
+            <img class="face bottom" src="./images/Untitled design/6.png" alt="6">
         </div>
     </div>
+
+    <button class="roll-button" onclick="rollDice()">Roll Dice</button>
+
+    <div class="number-display" id="numberDisplay">Number: -</div>
+
+    <script>
+        function rollDice() {
+            // Generate a random number between 1 and 6
+            const randomNumber = Math.floor(Math.random() * 6) + 1;
+
+            // Define the rotation for each face based on the generated number
+            let rotateX = 0;
+            let rotateY = 0;
+
+            switch (randomNumber) {
+                case 1:
+                    rotateX = 360;
+                    rotateY = 360;
+                    break;
+                case 2:
+                    rotateX = 180;
+                    rotateY = 0;
+                    break;
+                case 3:
+                    rotateX = -180;
+                    rotateY = 90;
+                    break;
+                case 4:
+                    rotateX = 0;
+                    rotateY = -270;
+                    break;
+                case 5:
+                    rotateX = 270;
+                    rotateY = 0;
+                    break;
+                case 6:
+                    rotateX = 450;
+                    rotateY = 0;
+                    break;
+            }
+
+            // Get the cube element and set its rotation and animation speed
+            const cube = document.querySelector('.cube');
+            const numberDisplay = document.getElementById('numberDisplay');
+            
+            // Make the cube rotate faster (shorter duration)
+            cube.style.transition = `transform 0.4s ease-out`; // Faster rotation (0.4s)
+            cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            cube.style.transition = `transform 0.4s ease-all`; 
+            
+            // Display the generated number after rotation
+            numberDisplay.textContent = `Number: ${randomNumber}`;
+        }
+    </script>
 </body>
 </html>
