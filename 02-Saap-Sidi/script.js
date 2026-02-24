@@ -158,12 +158,47 @@ function updateTokenPosition(token, pos) {
 }
 
 function animateDice(num) {
-    diceImage.src = `images/Untitled design/${num}.png`;
-    diceImage.style.transform = `rotate(${360 * 2}deg)`;
+    // diceImage is now the #dImage cube element
+    diceSound.currentTime = 0;
     diceSound.play();
-    setTimeout(() => {
-        diceImage.style.transform = `rotate(0deg)`;
-    }, 1000);
+
+    // Map each number to a specific rotation that brings the corresponding face to the front
+    // Each case includes 720 degrees of extra rotation for a spinning effect
+    let rotateX = 720;
+    let rotateY = 720;
+
+    switch (num) {
+        case 1: // Front
+            rotateX += 0;
+            rotateY += 0;
+            break;
+        case 2: // Back
+            rotateX += 0;
+            rotateY += 180;
+            break;
+        case 3: // Right
+            rotateX += 0;
+            rotateY += -90;
+            break;
+        case 4: // Left
+            rotateX += 0;
+            rotateY += 90;
+            break;
+        case 5: // Top
+            rotateX += -90;
+            rotateY += 0;
+            break;
+        case 6: // Bottom
+            rotateX += 90;
+            rotateY += 0;
+            break;
+    }
+
+    diceImage.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+    // Optional: reset rotation after a while without transition to keep it "landing" naturally
+    // but the next roll will calculate from a new base anyway if we just keep adding to it
+    // For simplicity, we just set the final state.
 }
 
 function movePlayer(playerName, targetPos) {

@@ -21,11 +21,11 @@
             <div class="overlay-content">
                 <h2>Snake Ladder</h2>
                 <input type="text" id="player-name" placeholder="Enter Your Name" maxlength="10">
-                <hr style="margin: 20px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.2);">
+                <hr style="margin: 10px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.2);">
 
                 <div class="ui-section">
-                    <h3>Create a New Room</h3>
-                    <button id="create-btn">Generate Room & Create</button>
+                    <!-- <h3>Create a New Room</h3> -->
+                    <button id="create-btn">Create Room</button>
                 </div>
 
                 <div style="margin: 20px 0; font-weight: bold; color: white;">- OR -</div>
@@ -48,7 +48,9 @@
             <div id="turn-display">Turn: <span id="current-player-turn">-</span></div>
             <div class="game-controls">
                 <button id="start-game-btn" style="display: none;">Start Game</button>
-                <button id="quit-game-btn" style="background: #f00; color: #fff;">Quit Game</button>
+                <button id="quit-game-btn"
+                    style="background: #180b0b; color: #fff; padding: 3px 6px; outline: none; border: 1px solid; border-radius: 5px; opacity: 1; transform: none; border-image: linear-gradient(to right, rgb(168, 85, 247), rgb(236, 72, 153), rgb(59, 130, 246)) 1 / 1 / 0 stretch;">Quit
+                    Game</button>
             </div>
         </div>
 
@@ -187,16 +189,24 @@
                         <h4 style="color: aliceblue; font-weight: bolder; text-align: center;">Players</h4>
                         <div id="players-list" style="color: white; padding: 10px;"></div>
                     </div>
-                    <div class="join-player" style="margin-top: 20px;">
+                    <!-- <div class="join-player" style="margin-top: 20px;">
                         <h4 style="color: aliceblue; font-weight: bolder; text-align: center;">Winners</h4>
                     </div>
                     <div class="players-box" id="players-box">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="sum">
-                    <p id="sum">
-                        <img id="dImage" src="images/Untitled design/1.png" alt="">
-                    </p>
+                    <div class="dice-container">
+                        <div id="dImage" class="cube">
+                            <div class="face front"><img src="images/Untitled design/1.png" alt="1"></div>
+                            <div class="face back"><img src="images/Untitled design/2.png" alt="2"></div>
+                            <div class="face right"><img src="images/Untitled design/3.png" alt="3"></div>
+                            <div class="face left"><img src="images/Untitled design/4.png" alt="4"></div>
+                            <div class="face top"><img src="images/Untitled design/5.png" alt="5"></div>
+                            <div class="face bottom"><img src="images/Untitled design/6.png" alt="6"></div>
+                        </div>
+                        <div class="dice-shadow"></div>
+                    </div>
                 </div>
                 <div class="btn" id="btn">
                     Roll Dice
